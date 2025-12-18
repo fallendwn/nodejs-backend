@@ -55,7 +55,11 @@ app.post("/button-click", (req,res)=>{
     })
 
 })
+app.get("/profile/:id", (req,res)=>{
 
+    res.send(`Hello user with ${req.params.id}`)
+
+})
 app.listen(port, ()=>{
 
     console.log("running on localhost:3000");
