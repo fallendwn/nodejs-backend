@@ -68,7 +68,6 @@ app.get("/user", async (req,res)=>{
     for(let i = 0 ; i < size; i++){
         let current_article = news_articles[i]
         news_results.push([current_article.title,current_article.urlToImage, current_article.description, current_article.url])
-
     }
 
     //send data i need
