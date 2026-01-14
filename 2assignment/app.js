@@ -45,16 +45,18 @@ app.get("/user", async (req,res)=>{
     const conversion_rates = currency_data.conversion_rates
 
     //get country in format i need
-    const conversion_rates_list = [`1${country_currency} : ${conversion_rates.USD}USD`, ` 1${country_currency} : ${conversion_rates.KZT}KZT`]
+    const conversion_rates_list = [`1${country_currency} : ${conversion_rates.USD}USD`, ` 1${country_currency} : ${conversion_rates.KZT}KZT`, `1${country_currency} : ${conversion_rates.EUR}EUR`]
     let cca3_country_name = country_json[0].cca3
     cca3_country_name = cca3_country_name.toLowerCase()
 
     //response for news api
-    const news_response = await fetch(`https://newsapi.org/v2/top-headlines?country=us&apiKey=${API.news_api}`)
+    const news_response = await fetch(`https://newsapi.org/v2/top-headlines?country=${cca3_country_name}&apiKey=${API.news_api}`)
     const news_response_data = await news_response.json()
 
     news_articles = news_response_data.articles
     news_results = [] 
+
+
 
 
     let size = 0

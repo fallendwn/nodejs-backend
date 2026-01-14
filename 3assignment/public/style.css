@@ -1,0 +1,127 @@
+.post{
+    min-height: 400px;
+    height: auto;
+    width: 400px;
+    background-color: #222222;
+    display: flex;
+
+    flex-direction: column;
+    justify-content: space-between;
+    border: 5px, solid, #323334;
+    border-radius: 20px;
+    word-break: break-all;
+
+}
+
+
+
+.pop-up{
+
+    position:fixed;
+    background-color: #222222;
+    width: 500px;
+    height: 500px;
+    display: none;
+    transition: opacity 250ms ease-in;
+    border-radius: 0.9em;
+    border: 2px, solid,#010101 ;
+    margin-left: 150px;
+}   
+
+
+.pop-up form{
+    display: none;
+    padding-left: 10%;
+}
+
+input{
+    border-radius: 15px;
+    border: 1px solid #ccc;
+}
+
+body{
+    display: flex;
+    flex-direction: row;
+    height: 100%;
+    gap: 40px;
+    background-color: #141414;
+    color: white;
+}
+main{
+    display: flex;
+    flex-direction: column;
+}
+.header{
+    max-width: 150px;
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    position: fixed;
+
+}
+button {
+    border: 2px, solid,#010101 ;
+    background-color: #141414;
+    border-radius: 0.9em;
+    cursor: pointer;
+    padding: 0.8em 1.2em 0.8em 1em;
+    transition: all ease-in-out 0.2s;
+    font-size: 16px;
+}
+
+button span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-weight: 600;
+}
+
+button:hover {
+    background-color: #1D1D1D;
+}
+
+.title{
+    max-height: 30px;
+    text-align: center;
+}
+.post-body{
+    min-height: 250px;
+    padding-top: 20px;
+    text-align: start;
+    padding-left: 40px;
+    max-width: 80%;
+}
+.time{
+    max-height: 30px;
+    text-align: center;
+}
+
+.author{
+    text-align: center;
+}
+
+
+
+#post-div{
+    display: flex;
+    flex-direction: column;
+    gap: 40px;
+    padding-left: 200%;
+
+}
+
+.submit-button{
+    min-width: 150px;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+button{
+    color: white;
+}
+.enter-new-data{
+    margin-right: 50px;
+    font-size: 30px;
+    text-align: center;
+}

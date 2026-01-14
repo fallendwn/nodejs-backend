@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Waiting for something to happen?...</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <header>
+
+        <div class="header">
+
+            <button id="add-post">Add new post</button>
+            <button id="delete-post">Delete post</button>
+            <button id="patch-post">Patch some post</button>
+            <button id="get-post">Get one specific post</button>
+
+        </div>
+
+    </header>
+
+    <main>
+        
+        <div class="pop-up">
+            <form action="" id="add-post-form">
+                <p class="enter-new-data">Enter new post</p>
+                <p>Enter title</p>
+                <input type="text" name="" id="add-title">
+
+                <p>Enter body</p>
+                <input type="textarea" id = "add-body">
+
+                <p>Enter author</p>
+                <input type="text" id="add-author">
+            </form>
+
+            <form action="" id="delete-post-form">
+                <p class="enter-new-data">Delete post</p>
+                <p>Enter ObjectId</p>
+                <input type="text" name="" id="delete-id">
+            </form>
+
+            <form action="" id = "patch-post-form">
+                
+                <p class="enter-new-data">Patch post</p>
+
+                <p>Enter ObjectId</p>
+                <input type="text" name="" id="patch-id">
+
+                <p>Enter new title</p>
+                <input type="text" name="" id="patch-title">
+
+                <p>Enter new body</p>
+                <input type="textarea" id = "patch-body">
+
+                <p>Enter new author</p>
+                <input type="text" id="patch-author">
+            </form>
+            
+
+            <form action="" id = "get-post-form">
+                <p class="enter-new-data">Get post by id</p>
+                <p>Enter ObjectId</p>
+                <input type="text" name="" id="get-post-id">
+            </form>
+
+            <button class="submit-button"> Submit</button>
+            <p id="response"></p>
+        </div>
+        <div id = "post-div">
+            
+        </div>
+
+    </main>
+    
+</body>
+<script src="index.js"></script>
+</html>
