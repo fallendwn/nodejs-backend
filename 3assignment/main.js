@@ -41,12 +41,16 @@ async function getBlogs(req,res){
 app.get("/blogs", getBlogs)
 
 //================================================
-
+//get blog by id
 async function getBlog(req,res){
     const db = await connectDB()
     const objId = req.params.id
-    const postById = await db.collection('post').findOne({_id : new ObjectId(objId)})
-    res.send(postById)
+    if (ObjectId.isValid(objId)){
+        const postById = await db.collection('post').findOne({_id : new ObjectId(objId)})
+        res.send({response : {errors : [{code : 200 , message : ""}]}, ok : true, data : postById})
+    }else{
+        res.send({response : {errors : [{code : 404 , message : "Post not found!"}]}, ok : false, data : ""})
+    }
 
 }
 
@@ -59,13 +63,38 @@ app.get("/blogs/:id", getBlog)
 async function deleteBlog(req,res){
     const db = await connectDB()
     const objId = req.params.id
-    const result = await db.collection('post').deleteOne({_id : new ObjectId(objId)})
-    const resultCount = result.deletedCount
-    console.log(resultCount)
-    res.send(result)
+    if (ObjectId.isValid(objId)){
+        await db.collection('post').deleteOne({_id : new ObjectId(objId)})
+        res.send({response : {errors : [{code : 200 , message : ""}]}, ok : true, data : objId})
+    }else{
+        res.send({response : {errors : [{code : 400 , message : "Bad id"}]}, ok : false, data : ""})
+    }
 }
 app.delete("/blogs/:id", deleteBlog)
+//=================================================
 
+
+//put=================================================
+async function putBlog(req,res){
+    const db = await connectDB()
+    const objId = req.params.id
+    const {title, body, author} = await req.body
+    if (title.trim() === ""|| body.trim() === ""){
+        res.send({response : {errors : [{code : 400 , message : "Title or Body is empty"}]}, ok : false, data : ""})
+    }else{
+    
+        if (ObjectId.isValid(objId)){
+            await db.collection('post').updateOne({_id : new ObjectId(objId)}, {$set : {title : title, body : body, author : author, update_date : new Date()}})
+            res.send({response : {errors : [{code : 200 , message : ""}]}, ok : true, data : objId})
+        }else{
+            res.send({response : {errors : [{code : 404 , message : "Post not found!"}]}, ok : false, data : ""})
+        }
+    }
+}
+
+app.put("/blogs/:id", putBlog)
+
+//==================================================================================================
 app.listen(port, ()=>{
 
     console.log("running on 3000")
