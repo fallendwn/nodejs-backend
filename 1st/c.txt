@@ -1,5 +1,0 @@
-app.get("/profile/:id", (req,res)=>{
-
-    res.send(`Hello user with ${req.param.id}`)
-
-})
